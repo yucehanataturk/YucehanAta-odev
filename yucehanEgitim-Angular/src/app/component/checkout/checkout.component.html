@@ -1,0 +1,85 @@
+<body class="bg-light">
+
+    <div class="container">
+      <div class="py-5 text-center">
+        <h2>Odeme</h2>
+         </div>
+
+      <div class="row">
+
+          <h4 class="mb-3">Fatura Adresi</h4>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="firstName">Ad</label>
+                <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  Geçerli bir ad gereklidir.
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="lastName">Soyad</label>
+                <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  Geçerli bir soyadı gereklidir.
+                </div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="email">Email </label>
+              <input type="email" class="form-control" id="email" placeholder="you@example.com">
+              <div class="invalid-feedback">
+                Kurs'un iletilebilmesi için lütfen geçerli bir e-posta adresi girin.
+              </div>
+            </div>
+
+            <h4 class="mb-3">Odeme</h4>
+
+            <div class="d-block my-3">
+              <div class="custom-control custom-radio">
+                <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
+                <label class="custom-control-label" for="credit">Kredi Kartı</label>
+              </div>
+              <div class="custom-control custom-radio">
+                <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
+                <label class="custom-control-label" for="debit">Banka Kartı</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="cc-name">Kart uzerindeki isim</label>
+                <input type="text" class="form-control" id="cc-name" placeholder="" required>
+                <div class="invalid-feedback">
+                  İsim gerekli
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="cc-number">Kart Numarası</label>
+                <input type="text" class="form-control" id="cc-number" placeholder="" required>
+                <div class="invalid-feedback">
+                  Kart Numarası gerekli
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3 mb-3">
+                <label for="cc-expiration">Son Gecerlilik Tarihi</label>
+                <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
+                <div class="invalid-feedback">
+                  Son Gecerlilik Tarihi gerekli
+                </div>
+              </div>
+              <div class="col-md-3 mb-3">
+                <label for="cc-expiration">CVV</label>
+                <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+                <div class="invalid-feedback">
+                  CVV Kodu gerekli
+                </div>
+              </div>
+            </div>
+            <hr class="mb-4">
+            <button class="btn btn-primary btn-lg btn-block" type="submit" (click)="handleSubmit()">Odeme kismina devam et</button>
+          </form>
+        </div>
+      </div>
+
+    </div>

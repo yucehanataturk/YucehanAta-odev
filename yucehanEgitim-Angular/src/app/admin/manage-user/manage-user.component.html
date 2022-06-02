@@ -1,0 +1,70 @@
+<div class="d-flex" id="wrapper">
+  <!-- Sidebar -->
+  <div class="bg-light border-right" id="sidebar-wrapper" [ngClass]="status ? 'hide' : 'show'">
+    <div class="sidebar-heading" routerLink="/admin">Admin </div>
+    <div class="list-group list-group-flush">
+
+        <a  class="list-group-item list-group-item-action bg-light" routerLink="/admin">Panel</a>
+        <a  class="list-group-item list-group-item-action bg-light" routerLink="/manage-category">Kategori Ekle</a>
+        <a  class="list-group-item list-group-item-action bg-light" routerLink="/add-Course">Kurs Ekle</a>
+        <a  class="list-group-item list-group-item-action bg-light" routerLink="/manage-user">Kullanıcı Duzenle</a>
+        <a  *ngIf="isAdminLoggedIn" class="list-group-item list-group-item-action bg-light" (click)="SignOut()">Cikis Yap</a>
+        <a  *ngIf="!isAdminLoggedIn" class="list-group-item list-group-item-action bg-light" (click)="SignIn()">Giris Yap</a>
+
+    </div>
+  </div>
+  <!-- /#sidebar-wrapper -->
+  <!-- Page Content -->
+  <div id="page-content-wrapper">
+    <nav class="navbar navbar-default navbar-fixed-top navbar-expand-lg navbar-dark bg-dark">
+
+      <div class="container-fluid">
+        <button class="btn btn-info" (click)="clickEvent()">Daha Fazla...</button>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" routerLink="/admin">Ana Sayfa</a>
+            </li>
+          </ul>
+
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Ara</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+
+    <div class="row">
+
+      <div class="col-lg-12">
+        <table class="table table-bordered extra">
+          <thead class="thead-dark">
+            <tr>
+              <th>Kullanıcı Adı</th>
+              <th>Kullanıcı Detayları</th>
+              <th>Telefon</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of Users">
+              <td>{{user.userName}}</td>
+              <td>{{user.email}}</td>
+              <td>{{user.mobile}}</td>
+              <td>
+                <button class="btn btn-primary" (click)="onButtonClick(user)">Goruntule</button>&nbsp;
+                <button class="btn btn-secondary" (click)="onButtonClick2(user)">Duzenle</button>&nbsp;
+                <button class="btn btn-danger" (click)="delete(user.userId)">Sil</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <button type="button" class="btn btn-success btn-md" (click)="onButtonClick3()">Kullanici Ekle</button> 
+      </div>
+
+    </div>

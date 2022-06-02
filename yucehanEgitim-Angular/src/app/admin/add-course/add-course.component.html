@@ -1,0 +1,93 @@
+<div class="d-flex" id="wrapper">
+    <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper"  [ngClass]="status ? 'hide' : 'show'">
+      <div class="sidebar-heading" routerLink="/admin" >Admin </div>
+      <div class="list-group list-group-flush">
+        <a  class="list-group-item list-group-item-action bg-light" routerLink="/admin">Panel</a>
+        <a  class="list-group-item list-group-item-action bg-light" routerLink="/manage-category">Kategori Ekle</a>
+        <a  class="list-group-item list-group-item-action bg-light" routerLink="/add-Course">Kurs Ekle</a>
+        <a  class="list-group-item list-group-item-action bg-light" routerLink="/manage-user">Kullanıcı Duzenle</a>
+        <a  *ngIf="isAdminLoggedIn" class="list-group-item list-group-item-action bg-light" (click)="SignOut()">Cikis Yap</a>
+        <a  *ngIf="!isAdminLoggedIn" class="list-group-item list-group-item-action bg-light" (click)="SignIn()">Giris Yap</a>
+      </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+      <nav class="navbar navbar-default navbar-fixed-top navbar-expand-lg navbar-dark bg-dark">
+       
+        <div class="container-fluid">
+          <button class="btn btn-info" (click)="clickEvent()">Daha Fazla...</button>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" routerLink="/admin">Ana Sayfa</a>
+              </li>
+              
+           
+            </ul>
+          
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Ara</button>
+              </form>
+          </div>
+        </div>
+      </nav>
+<!-- ADD Course CODE STARTS -->
+<div class="container main" style="max-width: 500px;">
+    <h3 class="mb-3 mt-5 text-center">Kurs Ekle</h3>
+  
+    <div class="form-group">
+      <input type="number" [(ngModel)]="addCourse.CourseId" class="form-control" placeholder="Course Id">
+    </div>
+
+    <div class="form-group">
+        <input type="number" [(ngModel)]="addCourse.CategoryId" class="form-control" placeholder="Category Id">
+      </div>
+  
+    <div class="form-group">
+      <input type="text" [(ngModel)]="addCourse.Title" class="form-control" placeholder="Course Title">
+    </div>
+      <div class="form-group">
+    <input type="date" [(ngModel)]="addCourse.PublicationYear" class="form-control" placeholder="Publish year">
+      </div>
+      <div class="form-group">
+        <input type="number" [(ngModel)]="addCourse.Price" class="form-control" placeholder="price">
+      </div>
+
+
+    <div class="form-group">
+      <input type="text" [(ngModel)]="addCourse.Description" class="form-control" placeholder="Description">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="status">Durum</label>
+      <select id="status" [(ngModel)]="addCourse.Status" class="form-control">
+       
+        <option>gorunur</option>
+        <option>pasif</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <input type="number" [(ngModel)]="addCourse.Position" class="form-control" placeholder="Position">
+    </div>
+
+    <div class="form-group">
+      <label for="exampleFormControlFile1">resim sec</label>
+      <input type="file" class="form-control-file" id="exampleFormControlFile1">
+    </div>
+
+    <div class="form-group">
+
+<button class="btn btn-success btn-lg btn-block"  (click)="addCourse(addCourse)" >Kurs Ekle</button>
+      </div>
+</div>
+
+<!-- ADD Course CODE ENDS -->
+
+    </div>
+    <!-- /#page-content-wrapper -->
+  </div>

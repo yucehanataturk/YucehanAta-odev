@@ -1,0 +1,59 @@
+ <app-navbar></app-navbar>
+
+
+
+      <!-- EDIT Course CODE STARTS -->
+      <div class="container" style="max-width: 500px;">
+        <h3 class="mb-3 mt-5 text-center">Kurs Duzenle</h3>
+      
+        <div class="form-group">
+          <input type="number" [(ngModel)]="editCourse.CourseId" class="form-control" placeholder="Course Id">
+        </div>
+    
+        <div class="form-group">
+            <input type="number" [(ngModel)]="editCourse.CategoryId" class="form-control" placeholder="Category Id">
+          </div>
+      
+        <div class="form-group">
+          <input type="text" [(ngModel)]="editCourse.Title" class="form-control" placeholder="Course Title">
+        </div>
+          <div class="form-group">
+        <input type="date" [(ngModel)]="editCourse.PublicationYear" class="form-control" placeholder="Publish year">
+          </div>
+          <div class="form-group">
+            <input type="number" [(ngModel)]="editCourse.Price" class="form-control" placeholder="price">
+          </div>
+    
+    
+        <div class="form-group">
+          <input type="text" [(ngModel)]="editCourse.Description" class="form-control" placeholder="Description">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="status">Durum</label>
+          <select id="status" [(ngModel)]="editCourse.Status" class="form-control">
+           
+            <option>gorunur</option>
+            <option>pasif</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <input type="number" [(ngModel)]="editCourse.Position" class="form-control" placeholder="Position">
+        </div>
+    
+        <div class="form-group">
+          <label for="exampleFormControlFile1">Resim Sec</label>
+          <input type="file" class="form-control-file" id="exampleFormControlFile1">
+        </div>
+    
+        <div class="form-group">
+    
+    <button class="btn btn-success btn-lg btn-block"  (click)="editCourse(editCourse.CourseId,editCourse)" >Kurs Duzenle</button>
+          </div>
+    </div>
+    
+
+
+<!-- EDIT Course CODE ENDS -->
+    
+    <!-- /#page-content-wrapper -->
+  

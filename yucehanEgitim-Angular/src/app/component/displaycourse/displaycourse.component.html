@@ -1,0 +1,35 @@
+<app-topnav></app-topnav>
+
+<h2 class="container text-center"></h2>
+<div class="row">
+    <div class="col-sm-3">
+        <h2 *ngIf="isShow">{{ LoggedInUserDetails }}</h2>
+        <ul class="list-group">
+            <li style="background-color: lightgrey; color:black" class="list-group-item active" (click)="onclick()">Mevcut Kategoriler
+            </li>
+            <li (click)="OnCategorySelect(category.catId)" class="list-group-item" *ngFor="let category of categories">
+                {{category.catName}}</li>
+        </ul>
+    </div>
+
+    <div class="col-sm-9">
+        <h1 class="text-center">Kurslar</h1>
+        <div class="row">
+            <div class="col-sm-3" *ngFor="let Course of Courses | filter:searchKey:'title'">
+                <div id="card" class="card shadow-sm">
+                    <div class="card-body">
+                        <h6 style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 70ch;" class="card-title" >{{ Course.title }}</h6>
+                        <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 70ch;" class="card-title" >{{ Course.CourseDescription }}</p>
+                        <p class=" h6 card-text card-text"  >{{ Course.author | titlecase }}</p>
+                        <p class=" h5 card-text card-text"  >Price: {{ Course.Price | currency:'TL' }}</p>
+
+                        <div style="margin: auto;">
+                            <a class="btn btn-success custom" (click)="handleAddToCart(Course,Course.ISBN,LoggedInUserDetails)" >Sepet'e Ekle</a>
+                            <a class="btn btn-warning custom" (click)=addToWish(Course)>İstek Listesi</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
